@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Thu Dec 15 16:19:17 2016 Martin Van Elslande
-** Last update Tue Dec 20 15:50:26 2016 Martin Van Elslande
+** Last update Tue Dec 20 15:59:46 2016 Martin Van Elslande
 */
 
 #include	<SFML/Graphics.h>
@@ -15,15 +15,11 @@ sfVector2f      move_forward(sfVector2f pos, float
 			     direction, float distance);
 
 
-float		raycast(sfVector2f pos, float direction, sfVector2i mapSize)
+float		raycast(sfVector2f pos, float direction, int **map, sfVector2i mapSize)
 {
   sfVector2f	moves;
   float		distance;
-  int		stop;
-  int		xunit;
-  int		yunit;
 
-  stop = 0;
   distance = 0;
   moves.x = pos.x;
   moves.y = pos.y;
