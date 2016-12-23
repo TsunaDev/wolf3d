@@ -5,10 +5,10 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Mon Dec  5 23:04:57 2016 Martin Van Elslande
-** Last update Fri Dec  9 18:18:53 2016 Martin Van Elslande
+** Last update Fri Dec 23 18:11:28 2016 Martin Van Elslande
 */
 
-#include		"infog.h"
+#include		"wolf3d.h"
 
 void	my_put_pixel(t_my_framebuffer *framebuffer, int x, int y,
 		     sfColor color)

@@ -5,10 +5,10 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Mon Dec  5 23:08:28 2016 Martin Van Elslande
-** Last update Sun Dec 11 19:19:39 2016 Martin Van Elslande
+** Last update Fri Dec 23 18:14:44 2016 Martin Van Elslande
 */
 
-#include	"infog.h"
+#include	"wolf3d.h"
 
 void	my_draw_line_2(t_my_framebuffer *framebuffer, int *arr, sfColor color)
 {

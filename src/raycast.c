@@ -5,31 +5,29 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Thu Dec 15 16:19:17 2016 Martin Van Elslande
-** Last update Tue Dec 20 15:59:46 2016 Martin Van Elslande
+** Last update Fri Dec 23 20:00:03 2016 Martin Van Elslande
 */
 
-#include	<SFML/Graphics.h>
-#include	<math.h>
+#include	"wolf3d.h"
 
-sfVector2f      move_forward(sfVector2f pos, float
-			     direction, float distance);
-
-
-float		raycast(sfVector2f pos, float direction, int **map, sfVector2i mapSize)
+float		raycast(sfVector2f pos, float direction, int **map,
+			sfVector2i mapSize)
 {
   sfVector2f	moves;
   float		distance;
 
-  distance = 0;
+  distance = 0.0;
   moves.x = pos.x;
   moves.y = pos.y;
-  while ((int)moves.x < mapSize.x && (int)moves.y < mapSize.y &&
-	 (int)moves.x >= 0 && (int)moves.y >= 0)
+  while ((int)(moves.x) < mapSize.x && (int)(moves.y) < mapSize.y &&
+	 moves.x >= 0.0 && moves.y >= 0.0)
     {
-      moves = move_forward(moves, direction, (2.0 / 100.0));
-      distance += (2.0 / 100.0);
-      if (map[(int)moves.y][(int)moves.x] == 1)
-	return (distance - (2.0 / 100.0));
+      moves = move_forward(moves, direction, (1.0 / 100.0));
+      distance += (1.0 / 100.0);
+      if ((int)(moves.x + 0.01) < mapSize.x &&
+	  (int)(moves.y + 0.01) < mapSize.y &&
+	  map[(int)(moves.y + 0.01)][(int)(moves.x + 0.01)] == 1)
+	return (distance);
     }
   return (distance);
 }

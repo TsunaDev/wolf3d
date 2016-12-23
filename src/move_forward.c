@@ -5,11 +5,10 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Thu Dec 15 15:04:01 2016 Martin Van Elslande
-** Last update Thu Dec 15 15:46:07 2016 Martin Van Elslande
+** Last update Fri Dec 23 18:11:00 2016 Martin Van Elslande
 */
 
-#include	<SFML/Graphics.h>
-#include	<math.h>
+#include	"wolf3d.h"
 
 sfVector2f      move_forward(sfVector2f pos, float direction, float distance)
 {
