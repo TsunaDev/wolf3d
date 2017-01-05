@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 18:03:36 2016 Martin Van Elslande
-** Last update Fri Dec 23 20:00:13 2016 Martin Van Elslande
+** Last update Thu Dec 29 20:38:36 2016 Martin Van Elslande
 */
 
 #ifndef			WOLF_3D_
@@ -14,12 +14,13 @@
 # include               <math.h>
 # include               <SFML/Graphics.h>
 # include		<SFML/Audio.h>
+# include		<SFML/System.h>
 # include		<fcntl.h>
 # include      		<unistd.h>
 # include               <stdlib.h>
 
-# define		SCREEN_WIDTH	1920
-# define		SCREEN_HEIGHT	1080
+# define		SCREEN_WIDTH	640
+# define		SCREEN_HEIGHT	360
 
 typedef	struct		s_my_framebuffer
 {
@@ -30,26 +31,55 @@ typedef	struct		s_my_framebuffer
 
 typedef struct		s_my_mapsize
 {
-  int			x;
-  int			y;
+  sfVector2i		mapdim;
   int			tmp;
 }			t_mapsize;
 
-void			my_draw_line(t_my_framebuffer *framebuffer,
-				     sfVector2i from, sfVector2i to,
-				     sfColor color);
-sfRenderWindow		*window_open(int width, int height);
-t_my_framebuffer	*my_framebuffer_create(int width, int height);
-void			window_loop(sfRenderWindow *window, sfSprite *sprite);
-void			my_put_pixel(t_my_framebuffer *framebuffer, int x,
-				     int y, sfColor color);
-sfVector2f		move_forward(sfVector2f pos, float direction,
-				     float distance);
-int			errors(int errnb);
-float			raycast(sfVector2f pos, float direction,
-				int **map, sfVector2i mapSize);
-int			my_getnbr(char *str);
-int			match(char *str1, char *str2);
-int			my_checkenv(char **env);
+typedef struct		s_sfml
+{
+  sfRenderWindow	*window;
+  sfTexture		*texture;
+  sfSprite		*sprite;
+  sfMusic		*theme;
+}			t_sfml;
 
-#endif			/* !WOLF_3D_ */
+typedef struct		s_my_player
+{
+  sfVector2f		pos;
+  float			direction;
+  float			z_angle;
+}			t_my_player;
+
+typedef struct		s_raycast
+{
+  float			distance;
+  int			goal;
+}			t_raycast;
+
+void			my_put_pixel(t_my_framebuffer *, int, int, sfColor);
+void			map_end(int **, t_my_player *, t_sfml *, t_mapsize *);
+void			my_theme_music(t_sfml *);
+void			init_player(t_my_player *, sfVector2f);
+void			victory();
+void			create_view(int **, t_mapsize *, t_my_framebuffer *,
+				    t_my_player *);
+void			my_draw_line(t_my_framebuffer *, sfVector2i,
+				     sfVector2i, sfColor);
+int			leave(t_sfml *);
+int			errors(int);
+int			match(char *, char *);
+int			my_checkenv(char **);
+int			my_wolf3d(int **, t_mapsize *);
+int			check_map(int **, sfVector2i);
+int			window_loop(t_sfml *, int **, t_mapsize *,
+				    t_my_framebuffer *);
+float			raycast(sfVector2f, float, int **, sfVector2i);
+sfVector2f		player_pos(int **, sfVector2i);
+sfVector2f		move_forward(sfVector2f, float, float);
+sfVector2f		will_i_move_forward(t_my_player *, int **, sfVector2i,
+					    float);
+sfRenderWindow		*window_open(int, int);
+t_my_framebuffer	*my_framebuffer_create(int, int);
+t_raycast		*raycast_u(sfVector2f, float, int **, sfVector2i);
+
+#endif /* !WOLF_3D_ */

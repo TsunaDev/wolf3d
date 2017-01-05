@@ -1,11 +1,11 @@
 /*
-** my_utils.c for wolf3D in /home/tsuna/Epitech/projects/Infograph/wolf3d/wolf/wolf3d
+** my_utils.c for wolf3D in /home/tsuna/Epitech/projects/Infograph/wolf3d
 ** 
 ** Made by Martin Van Elslande
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 14:25:18 2016 Martin Van Elslande
-** Last update Fri Dec 23 18:14:59 2016 Martin Van Elslande
+** Last update Mon Jan  2 19:30:58 2017 Martin Van Elslande
 */
 
 #include		"wolf3d.h"
@@ -27,9 +27,11 @@ int			my_checkenv(char **env)
 	n++;
       else if (match(env[i], "CPATH=*") == 1)
 	n++;
+      else if (match(env[i], "XDG_RUNTIME_DIR=*") == 1)
+	n++;
       i++;
     }
-  if (n != 4)
+  if (n != 5)
     return (84);
   else
     return (0);

@@ -5,10 +5,10 @@
 ## Login   <martin.van-elslande@epitech.eu>
 ## 
 ## Started on  Fri Dec 23 14:25:40 2016 Martin Van Elslande
-## Last update Fri Dec 23 18:22:44 2016 Martin Van Elslande
+## Last update Thu Dec 29 19:45:36 2016 Martin Van Elslande
 ##
 
-CFLAGS	=	-Iinclude
+CFLAGS	=	-Iinclude -Wall -Wextra
 
 SRC	=	src/main.c		\
 		src/raycast.c		\
@@ -18,6 +18,11 @@ SRC	=	src/main.c		\
 		src/match.c		\
 		src/errors.c		\
 		src/wolf3d.c		\
+		src/window.c		\
+		src/pos.c		\
+		src/usable_raycast.c	\
+		src/music.c		\
+		src/chicken.c		\
 		src/my_utils.c
 
 OBJ	=	$(SRC:.c=.o)

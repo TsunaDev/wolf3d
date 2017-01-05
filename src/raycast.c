@@ -1,11 +1,11 @@
 /*
-** raycast.c for bs_wolf3d in /home/tsuna/Epitech/projects/Infograph/wolf3d/bootstrap/bswolf3d/src
+** raycast.c for bs_wolf3d in /home/tsuna/Epitech/projects/Infograph/wolf3d
 ** 
 ** Made by Martin Van Elslande
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Thu Dec 15 16:19:17 2016 Martin Van Elslande
-** Last update Fri Dec 23 20:00:03 2016 Martin Van Elslande
+** Last update Thu Dec 29 19:01:16 2016 Martin Van Elslande
 */
 
 #include	"wolf3d.h"

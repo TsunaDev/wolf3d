@@ -1,12 +1,14 @@
 /*
-** errors.c for wold3D in /home/tsuna/Epitech/projects/Infograph/wolf3d/wolf/wolf3d
+** errors.c for wold3D in /home/tsuna/Epitech/projects/Infograph/wolf3d
 ** 
 ** Made by Martin Van Elslande
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 17:23:28 2016 Martin Van Elslande
-** Last update Fri Dec 23 17:54:24 2016 Martin Van Elslande
+** Last update Thu Dec 29 18:57:36 2016 Martin Van Elslande
 */
+
+#include	<unistd.h>
 
 int	errors(int errnb)
 {
@@ -27,7 +29,10 @@ int	errors(int errnb)
     write(2, "Invalid character in map, only 0,1 and 2 are enabled.\n", 54);
   else if (errnb == 6)
     write(2, "Invalid environment.\n", 21);
-  else
-    write(2, "Error that I hold without knowing.\n", 35);
+  else if (errnb == 7)
+    {
+      write(2, "Invalid number of players (4) or goals (3) in the map,", 54);
+      write(2, " only one of each allowed\n", 26);
+    }
   return (84);
 }
