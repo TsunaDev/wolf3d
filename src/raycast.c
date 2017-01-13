@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Thu Dec 15 16:19:17 2016 Martin Van Elslande
-** Last update Fri Jan 13 15:58:47 2017 Martin Van Elslande
+** Last update Fri Jan 13 15:59:34 2017 Martin Van Elslande
 */
 
 #include	"wolf3d.h"
@@ -25,7 +25,6 @@ float		raycast(sfVector2f pos, float direction, int **map,
     {
       moves = move_forward(moves, direction, 0.0001f);
       distance += 0.0001f;
-      return (sqrt(pow((moves.x - pos.x), 2) + pow((moves.y - pos.y), 2)));
     }
   distance = sqrt(pow((moves.x - pos.x), 2) + pow((moves.y - pos.y), 2));
   return (distance);
