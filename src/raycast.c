@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Thu Dec 15 16:19:17 2016 Martin Van Elslande
-** Last update Fri Jan 13 15:59:34 2017 Martin Van Elslande
+** Last update Fri Jan 13 16:02:30 2017 Martin Van Elslande
 */
 
 #include	"wolf3d.h"
@@ -21,7 +21,7 @@ float		raycast(sfVector2f pos, float direction, int **map,
   moves.y = pos.y;
   while ((int)(moves.x) < mapSize.x && (int)(moves.y) < mapSize.y &&
 	 moves.x >= 0.0f && moves.y >= 0.0f &&
-	 map[(int)(moves.y + 0.0001f)][(int)(moves.x + 0.0001f)] == 0))
+	 map[(int)(moves.y + 0.0001f)][(int)(moves.x + 0.0001f)] == 0)
     {
       moves = move_forward(moves, direction, 0.0001f);
       distance += 0.0001f;
