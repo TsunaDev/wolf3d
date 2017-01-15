@@ -5,7 +5,7 @@
 ## Login   <martin.van-elslande@epitech.eu>
 ## 
 ## Started on  Fri Dec 23 14:25:40 2016 Martin Van Elslande
-## Last update Sun Jan 15 21:28:23 2017 Martin Van Elslande
+## Last update Sun Jan 15 22:30:26 2017 Martin Van Elslande
 ##
 
 CFLAGS	=	-Iinclude -Wall -Wextra
@@ -23,7 +23,8 @@ SRC	=	src/main.c		\
 		src/usable_raycast.c	\
 		src/music.c		\
 		src/chicken.c		\
-		src/my_utils.c
+		src/my_utils.c		\
+		src/help.c
 
 OBJ	=	$(SRC:.c=.o)
 

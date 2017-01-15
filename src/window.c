@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 20:09:15 2016 Martin Van Elslande
-** Last update Sun Jan 15 21:17:29 2017 Martin Van Elslande
+** Last update Sun Jan 15 21:19:32 2017 Martin Van Elslande
 */
 
 #include                "wolf3d.h"
@@ -39,7 +39,7 @@ sfRenderWindow          *window_open(int width, int height)
   mode.width = width;
   mode.height = height;
   mode.bitsPerPixel = 32;
-  window = sfRenderWindow_create(mode, "Best Coach Ever",
+  window = sfRenderWindow_create(mode, "Wolf3D",
 				 sfResize | sfClose, NULL);
   if (window == NULL)
     return (NULL);

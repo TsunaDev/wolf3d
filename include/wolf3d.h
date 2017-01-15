@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 18:03:36 2016 Martin Van Elslande
-** Last update Sun Jan 15 06:52:38 2017 Martin Van Elslande
+** Last update Sun Jan 15 22:31:12 2017 Martin Van Elslande
 */
 
 #ifndef			WOLF_3D_
@@ -19,8 +19,8 @@
 # include      		<unistd.h>
 # include               <stdlib.h>
 
-# define		SCREEN_WIDTH	640
-# define		SCREEN_HEIGHT	360
+# define		SCREEN_WIDTH	896
+# define		SCREEN_HEIGHT	504
 
 typedef	struct		s_my_framebuffer
 {
@@ -68,6 +68,7 @@ void			create_view(int **, t_mapsize *, t_my_framebuffer *,
 void			my_draw_line(t_my_framebuffer *, sfVector2i,
 				     sfVector2i, sfColor);
 int			leave(t_sfml *);
+int			helper(void);
 int			errors(int);
 int			match(char *, char *);
 int			my_checkenv(char **);

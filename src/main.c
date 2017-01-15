@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 14:23:43 2016 Martin Van Elslande
-** Last update Sun Jan 15 21:07:40 2017 Martin Van Elslande
+** Last update Sun Jan 15 22:35:36 2017 Martin Van Elslande
 */
 
 #include	"wolf3d.h"
@@ -52,7 +52,9 @@ int		get_size(t_mapsize *mapsize, char *buffer)
 	  mapsize->tmp++;
 	  i++;
 	}
-      if (mapsize->mapdim.y != 0 && mapsize->mapdim.x != mapsize->tmp)
+      if (mapsize->mapdim.y != 0 && mapsize->mapdim.x != mapsize->tmp
+	  && buffer[i - mapsize->tmp] >= '0' &&
+	  buffer[i -mapsize->tmp] <= '4')
 	return (errors(4));
       mapsize->mapdim.x = mapsize->tmp;
       mapsize->mapdim.y++;
@@ -104,7 +106,7 @@ int		main(int ac, char **av, char **env)
 
   i = 0;
   if (ac == 1)
-    return (0);
+    return (helper());
   while (i++ < ac - 1)
     {
       if ((buffer = malloc(sizeof(char) * 30000)) == NULL)
@@ -112,7 +114,7 @@ int		main(int ac, char **av, char **env)
       if ((mapsize = malloc(sizeof(t_mapsize))) == NULL)
 	return (errors(0));
       if (my_checkenv(env) == 84)
-	return (errors(6));
+ 	return (errors(6));
       if (create_buffer(av[i], mapsize, &buffer) == 84)
 	return (84);
       map = malloc(sizeof(int*) * mapsize->mapdim.y);
