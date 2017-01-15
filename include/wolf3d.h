@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 18:03:36 2016 Martin Van Elslande
-** Last update Thu Dec 29 20:38:36 2016 Martin Van Elslande
+** Last update Sun Jan 15 06:52:38 2017 Martin Van Elslande
 */
 
 #ifndef			WOLF_3D_
@@ -48,6 +48,7 @@ typedef struct		s_my_player
   sfVector2f		pos;
   float			direction;
   float			z_angle;
+  sfVector2f		save;
 }			t_my_player;
 
 typedef struct		s_raycast
@@ -57,7 +58,8 @@ typedef struct		s_raycast
 }			t_raycast;
 
 void			my_put_pixel(t_my_framebuffer *, int, int, sfColor);
-void			map_end(int **, t_my_player *, t_sfml *, t_mapsize *);
+void			map_end(int **, t_my_player *, t_sfml *,
+				t_mapsize *);
 void			my_theme_music(t_sfml *);
 void			init_player(t_my_player *, sfVector2f);
 void			victory();
@@ -74,10 +76,11 @@ int			check_map(int **, sfVector2i);
 int			window_loop(t_sfml *, int **, t_mapsize *,
 				    t_my_framebuffer *);
 float			raycast(sfVector2f, float, int **, sfVector2i);
+float			move_turn(float, float);
 sfVector2f		player_pos(int **, sfVector2i);
 sfVector2f		move_forward(sfVector2f, float, float);
-sfVector2f		will_i_move_forward(t_my_player *, int **, sfVector2i,
-					    float);
+sfVector2f		will_i_move_forward(t_my_player *, int **,
+					    sfVector2i, float);
 sfRenderWindow		*window_open(int, int);
 t_my_framebuffer	*my_framebuffer_create(int, int);
 t_raycast		*raycast_u(sfVector2f, float, int **, sfVector2i);

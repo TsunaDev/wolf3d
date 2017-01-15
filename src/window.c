@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 20:09:15 2016 Martin Van Elslande
-** Last update Thu Jan  5 14:58:12 2017 Martin Van Elslande
+** Last update Sat Jan 14 20:01:48 2017 Martin Van Elslande
 */
 
 #include                "wolf3d.h"
@@ -54,17 +54,17 @@ void	       		game_manager(int **map, t_mapsize *mapsize,
 
   i = 0;
   if (sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue)
-    player->pos = will_i_move_forward(player, map, mapsize->mapdim, 0.1);
+    player->pos = will_i_move_forward(player, map, mapsize->mapdim, 0.1f);
   if (sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue)
-    player->pos = will_i_move_forward(player, map, mapsize->mapdim, -0.1);
+    player->pos = will_i_move_forward(player, map, mapsize->mapdim, -0.1f);
   if (sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue)
-    player->direction = (int)(player->direction - 3.0) % 360;
+    player->direction = move_turn(player->direction, (3.0f * (-1)));
   if (sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue)
-    player->direction = (int)(player->direction + 3.0) % 360;
-  if (sfKeyboard_isKeyPressed(sfKeyZ) == sfTrue && player->z_angle > 0.7)
-    player->z_angle -= 0.1;
-  if (sfKeyboard_isKeyPressed(sfKeyS) == sfTrue && player->z_angle < 4.5)
-    player->z_angle += 0.1;
+    player->direction = move_turn(player->direction, 3.0f);
+  if (sfKeyboard_isKeyPressed(sfKeyZ) == sfTrue && player->z_angle > 0.7f)
+    player->z_angle -= 0.1f;
+  if (sfKeyboard_isKeyPressed(sfKeyS) == sfTrue && player->z_angle < 4.5f)
+    player->z_angle += 0.1f;
   while (i < framebuffer->height * framebuffer->width * 4)
     {
       framebuffer->pixels[i] = 0;
@@ -75,8 +75,8 @@ void	       		game_manager(int **map, t_mapsize *mapsize,
 void			init_player(t_my_player *player, sfVector2f pos)
 {
   player->pos = pos;
-  player->direction = 90;
-  player->z_angle = 2.0;
+  player->direction = 45.0f;
+  player->z_angle = 2.0f;
 }
 
 int			window_loop(t_sfml *sfml, int **map,
@@ -89,11 +89,9 @@ int			window_loop(t_sfml *sfml, int **map,
   player = malloc(sizeof(t_my_player));
   init_player(player, player_pos(map, mapsize->mapdim));
   my_theme_music(sfml);
+  sfRenderWindow_setVerticalSyncEnabled(sfml->window, sfTrue);
   while (sfRenderWindow_isOpen(sfml->window))
     {
-      /* while (sfRenderWindow_pollEvent(sfml->window, &event)) */
-      /* 	if (event.type == sfEvtClosed) */
-      /* 	  sfRenderWindow_close(sfml->window); */
       map_end(map, player, sfml, mapsize);
       sfRenderWindow_clear(sfml->window, sfBlack);
       sfRenderWindow_drawSprite(sfml->window, sfml->sprite, NULL);

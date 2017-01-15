@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 18:15:23 2016 Martin Van Elslande
-** Last update Thu Dec 29 20:00:22 2016 Martin Van Elslande
+** Last update Fri Jan 13 14:52:56 2017 Martin Van Elslande
 */
 
 #include	"wolf3d.h"
@@ -44,6 +44,10 @@ void			draw_vertical_line(t_my_framebuffer *framebuffer,
   else
     color.a = 255 - raycast->distance * 20;
   i = from.y;
+  if (from.y < 0)
+    from.y = 0;
+  if (to.y > SCREEN_HEIGHT)
+    to.y = SCREEN_HEIGHT;
   while (i < to.y)
     {
       my_put_pixel(framebuffer, from.x, i, color);
