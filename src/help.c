@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Sun Jan 15 22:18:46 2017 Martin Van Elslande
-** Last update Sun Jan 15 23:06:02 2017 Martin Van Elslande
+** Last update Sun Jan 15 23:30:17 2017 Martin Van Elslande
 */
 
 #include	<unistd.h>
@@ -20,7 +20,7 @@ int		helper(void)
   write(1, "medium : play on medium maps mode.\n", 35);
   write(1, "hard : play on hard maps mode.\n", 32);
   write(1, "custom : you can add your own maps in the maps/custom ", 54);
-  write(1, "and then play on it\n\n", 21);
+  write(1, "and then play on it (max size: 170x170)\n\n", 41);
   write(1, "Controls :\n", 11);
   write(1, "Up and Down arrows to move in the up or down.\n", 46);
   write(1, "Right and Left arrows to rotate the camera.\n", 44);
