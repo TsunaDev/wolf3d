@@ -5,10 +5,10 @@
 ## Login   <martin.van-elslande@epitech.eu>
 ## 
 ## Started on  Fri Dec 23 14:25:40 2016 Martin Van Elslande
-## Last update Sun Jan 15 17:33:23 2017 Martin Van Elslande
+## Last update Sun Jan 15 21:28:23 2017 Martin Van Elslande
 ##
 
-CFLAGS	=	-Iinclude -Wall -Wextra -ggdb3
+CFLAGS	=	-Iinclude -Wall -Wextra
 
 SRC	=	src/main.c		\
 		src/raycast.c		\
