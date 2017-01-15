@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 18:15:23 2016 Martin Van Elslande
-** Last update Fri Jan 13 14:52:56 2017 Martin Van Elslande
+** Last update Sun Jan 15 21:13:45 2017 Martin Van Elslande
 */
 
 #include	"wolf3d.h"

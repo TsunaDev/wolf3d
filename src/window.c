@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 20:09:15 2016 Martin Van Elslande
-** Last update Sat Jan 14 20:01:48 2017 Martin Van Elslande
+** Last update Sun Jan 15 21:17:29 2017 Martin Van Elslande
 */
 
 #include                "wolf3d.h"
@@ -75,7 +75,7 @@ void	       		game_manager(int **map, t_mapsize *mapsize,
 void			init_player(t_my_player *player, sfVector2f pos)
 {
   player->pos = pos;
-  player->direction = 45.0f;
+  player->direction = 0.0f;
   player->z_angle = 2.0f;
 }
 
@@ -92,6 +92,7 @@ int			window_loop(t_sfml *sfml, int **map,
   sfRenderWindow_setVerticalSyncEnabled(sfml->window, sfTrue);
   while (sfRenderWindow_isOpen(sfml->window))
     {
+      sfRenderWindow_pollEvent(sfml->window, &event);
       map_end(map, player, sfml, mapsize);
       sfRenderWindow_clear(sfml->window, sfBlack);
       sfRenderWindow_drawSprite(sfml->window, sfml->sprite, NULL);

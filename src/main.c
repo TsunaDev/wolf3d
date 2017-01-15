@@ -5,7 +5,7 @@
 ** Login   <martin.van-elslande@epitech.eu>
 ** 
 ** Started on  Fri Dec 23 14:23:43 2016 Martin Van Elslande
-** Last update Mon Jan  2 19:31:43 2017 Martin Van Elslande
+** Last update Sun Jan 15 21:07:40 2017 Martin Van Elslande
 */
 
 #include	"wolf3d.h"
@@ -103,6 +103,8 @@ int		main(int ac, char **av, char **env)
   int		i;
 
   i = 0;
+  if (ac == 1)
+    return (0);
   while (i++ < ac - 1)
     {
       if ((buffer = malloc(sizeof(char) * 30000)) == NULL)
