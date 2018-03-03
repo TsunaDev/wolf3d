@@ -1,11 +1,8 @@
 /*
-** wolf3d.h for wolf3D in /home/tsuna/Epitech/projects/Infograph/wolf3d/wolf/wolf3d
-** 
-** Made by Martin Van Elslande
-** Login   <martin.van-elslande@epitech.eu>
-** 
-** Started on  Fri Dec 23 18:03:36 2016 Martin Van Elslande
-** Last update Sun Jan 15 22:31:12 2017 Martin Van Elslande
+** EPITECH PROJECT, 2016
+** wolf3d
+** File description:
+** wolf's includes
 */
 
 #ifndef			WOLF_3D_

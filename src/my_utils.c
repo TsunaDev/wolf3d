@@ -1,38 +1,19 @@
 /*
-** my_utils.c for wolf3D in /home/tsuna/Epitech/projects/Infograph/wolf3d
-** 
-** Made by Martin Van Elslande
-** Login   <martin.van-elslande@epitech.eu>
-** 
-** Started on  Fri Dec 23 14:25:18 2016 Martin Van Elslande
-** Last update Mon Jan  2 19:30:58 2017 Martin Van Elslande
+** EPITECH PROJECT, 2016
+** wolf3d
+** File description:
+** util functions
 */
 
 #include		"wolf3d.h"
 
 int			my_checkenv(char **env)
 {
-  int			i;
-  int			n;
+	int			i = 0;
 
-  i = 0;
-  n = 0;
-  while (env[i] != NULL)
-    {
-      if (match(env[i], "DISPLAY*") == 1)
-	n++;
-      else if (match(env[i], "LIBRARY_PATH=*") == 1)
-	n++;
-      else if (match(env[i], "LD_LIBRARY_PATH=*") == 1)
-	n++;
-      else if (match(env[i], "CPATH=*") == 1)
-	n++;
-      else if (match(env[i], "XDG_RUNTIME_DIR=*") == 1)
-	n++;
-      i++;
-    }
-  if (n != 5)
-    return (84);
-  else
-    return (0);
+	while (env[i] != NULL) {
+		if (match(env[i], "DISPLAY*") == 1)
+			return 0;
+	}
+	return (84);
 }

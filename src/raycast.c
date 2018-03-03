@@ -1,11 +1,8 @@
 /*
-** raycast.c for bs_wolf3d in /home/tsuna/Epitech/projects/Infograph/wolf3d
-** 
-** Made by Martin Van Elslande
-** Login   <martin.van-elslande@epitech.eu>
-** 
-** Started on  Thu Dec 15 16:19:17 2016 Martin Van Elslande
-** Last update Fri Jan 13 16:21:29 2017 Martin Van Elslande
+** EPITECH PROJECT, 2016
+** wolf3d
+** File description:
+** raycaster
 */
 
 #include	"wolf3d.h"
@@ -13,20 +10,20 @@
 float		raycast(sfVector2f pos, float direction, int **map,
 			sfVector2i mapSize)
 {
-  sfVector2f	moves;
-  float		distance;
+	sfVector2f	moves;
+	float		distance;
 
-  moves.x = pos.x;
-  moves.y = pos.y;
-  while ((int)(moves.x) < mapSize.x && (int)(moves.y) < mapSize.y &&
-	 moves.x > 0.0f && moves.y > 0.0f)
-    {
-      moves = move_forward(moves, direction, 0.0001f);
-      if ((int)(moves.x) < mapSize.x &&
-	  (int)(moves.y) < mapSize.y &&
-	  map[(int)(moves.y)][(int)(moves.x)] == 1)
-	return (sqrt(pow((moves.x - pos.x), 2) + pow((moves.y - pos.y), 2)));
-    }
-  distance = sqrt(pow((moves.x - pos.x), 2) + pow((moves.y - pos.y), 2));
-  return (distance);
+	moves.x = pos.x;
+	moves.y = pos.y;
+	while ((int)(moves.x) < mapSize.x && (int)(moves.y) < mapSize.y &&
+	       moves.x > 0.0f && moves.y > 0.0f) {
+		moves = move_forward(moves, direction, 0.0001f);
+		if ((int)(moves.x) < mapSize.x &&
+		    (int)(moves.y) < mapSize.y &&
+		    map[(int)(moves.y)][(int)(moves.x)] == 1)
+			return (sqrt(pow((moves.x - pos.x), 2) +
+				pow((moves.y - pos.y), 2)));
+	}
+	distance = sqrt(pow((moves.x - pos.x), 2) + pow((moves.y - pos.y), 2));
+	return (distance);
 }

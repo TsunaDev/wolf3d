@@ -1,58 +1,53 @@
 /*
-** music.c for wolf3d in /home/tsuna/Epitech/projects/Infograph/wolf3d
-** 
-** Made by Martin Van Elslande
-** Login   <martin.van-elslande@epitech.eu>
-** 
-** Started on  Thu Dec 29 14:56:09 2016 Martin Van Elslande
-** Last update Fri Jan  6 19:12:21 2017 Martin Van Elslande
+** EPITECH PROJECT, 2016
+** wolf3d
+** File description:
+** game sound theme management
 */
 
 #include	"wolf3d.h"
 
 void		victory()
 {
-  sfMusic	*victory;
+	sfMusic	*victory = sfMusic_createFromFile("sound/won.ogg");
 
-  if ((victory = sfMusic_createFromFile("sound/won.ogg")) != NULL)
-    {
-      sfMusic_play(victory);
-      sfSleep(sfMusic_getDuration(victory));
-      sfMusic_destroy(victory);
-    }
-  write (1, "\nYou won !\n\n", 12);
+	if (victory) {
+		sfMusic_play(victory);
+		sfSleep(sfMusic_getDuration(victory));
+		sfMusic_destroy(victory);
+	}
+	write (1, "\nYou won !\n\n", 12);
 }
 
 void		my_theme_music(t_sfml *sfml)
 {
-  if ((sfml->theme = sfMusic_createFromFile("sound/theme.ogg")) != NULL)
-    {
-      sfMusic_play(sfml->theme);
-      sfMusic_setLoop(sfml->theme, sfTrue);
-    }
+	sfml->theme = sfMusic_createFromFile("sound/theme.ogg");
+
+	if (sfml->theme) {
+		sfMusic_play(sfml->theme);
+		sfMusic_setLoop(sfml->theme, sfTrue);
+	}
 }
 
 void            map_end(int **map, t_my_player *player, t_sfml *sfml,
                         t_mapsize *mapsize)
 {
-  sfMusic       *music;
+	sfMusic       *music;
 
-  if (sfKeyboard_isKeyPressed(sfKeySpace) == sfTrue)
-    init_player(player, player_pos(map, mapsize->mapdim));
-  if (map[(int)player->pos.y][(int)player->pos.x] == 3)
-    {
-      if (sfml->theme != NULL)
-	{
-	  sfMusic_stop(sfml->theme);
-	  sfMusic_destroy(sfml->theme);
+	if (sfKeyboard_isKeyPressed(sfKeySpace) == sfTrue)
+		init_player(player, player_pos(map, mapsize->mapdim));
+	if (map[(int)player->pos.y][(int)player->pos.x] == 3) {
+		if (sfml->theme) {
+			sfMusic_stop(sfml->theme);
+			sfMusic_destroy(sfml->theme);
+		}
+		music = sfMusic_createFromFile("sound/map.ogg");
+		if (music) {
+			sfMusic_play(music);
+			sfSleep(sfMusic_getDuration(music));
+			sfMusic_destroy(music);
+		}
+		sfRenderWindow_close(sfml->window);
+		write(1, "Level finished !\n", 17);
 	}
-      if ((music = sfMusic_createFromFile("sound/map.ogg")) != NULL)
-	{
-	  sfMusic_play(music);
-	  sfSleep(sfMusic_getDuration(music));
-	  sfMusic_destroy(music);
-	}
-      sfRenderWindow_close(sfml->window);
-      write(1, "Level finished !\n", 17);
-    }
 }

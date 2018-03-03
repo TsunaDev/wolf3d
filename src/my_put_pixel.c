@@ -1,23 +1,19 @@
 /*
-** my_put_pixel.c for wireframe in /home/tsuna/Epitech/projects/Infograph/wireframe
-** 
-** Made by Martin Van Elslande
-** Login   <martin.van-elslande@epitech.eu>
-** 
-** Started on  Mon Dec  5 23:04:57 2016 Martin Van Elslande
-** Last update Fri Dec 23 18:11:28 2016 Martin Van Elslande
+** EPITECH PROJECT, 2016
+** wolf3d
+** File description:
+** put pixel in the framebuffer
 */
 
 #include		"wolf3d.h"
 
-void	my_put_pixel(t_my_framebuffer *framebuffer, int x, int y,
+void	my_put_pixel(t_my_framebuffer *fb, int x, int y,
 		     sfColor color)
 {
-  if (x >= 0 && y >= 0 && x < framebuffer->width && y < framebuffer->height)
-    {
-      framebuffer->pixels[(framebuffer->width * y + x) * 4] = color.r;
-      framebuffer->pixels[(framebuffer->width * y + x) * 4 + 1] = color.g;
-      framebuffer->pixels[(framebuffer->width * y + x) * 4 + 2] = color.b;
-      framebuffer->pixels[(framebuffer->width * y + x) * 4 + 3] = color.a;
-    }
+	if (x >= 0 && y >= 0 && x < fb->width && y < fb->height) {
+		fb->pixels[(fb->width * y + x) * 4] = color.r;
+		fb->pixels[(fb->width * y + x) * 4 + 1] = color.g;
+		fb->pixels[(fb->width * y + x) * 4 + 2] = color.b;
+		fb->pixels[(fb->width * y + x) * 4 + 3] = color.a;
+	}
 }

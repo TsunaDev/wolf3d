@@ -1,11 +1,8 @@
 /*
-** help.c for wolf3d in /home/tsuna/Epitech/projects/Infograph/wolf3d/wolf/wolf3d
-** 
-** Made by Martin Van Elslande
-** Login   <martin.van-elslande@epitech.eu>
-** 
-** Started on  Sun Jan 15 22:18:46 2017 Martin Van Elslande
-** Last update Sun Jan 15 23:30:17 2017 Martin Van Elslande
+** EPITECH PROJECT, 2016
+** wolf3d
+** File description:
+** helper function
 */
 
 #include	<unistd.h>

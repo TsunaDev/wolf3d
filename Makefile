@@ -1,11 +1,8 @@
 ##
-## Makefile for wolf3D in /home/tsuna/Epitech/projects/Infograph/wolf3d/wolf/wolf3d
-## 
-## Made by Martin Van Elslande
-## Login   <martin.van-elslande@epitech.eu>
-## 
-## Started on  Fri Dec 23 14:25:40 2016 Martin Van Elslande
-## Last update Sun Jan 15 22:30:26 2017 Martin Van Elslande
+## EPITECH PROJECT, 2016
+## wolf3d
+## File description:
+## wolf's makefile
 ##
 
 CFLAGS	=	-Iinclude -Wall -Wextra
