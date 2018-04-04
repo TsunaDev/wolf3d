@@ -14,6 +14,7 @@ int			my_checkenv(char **env)
 	while (env[i] != NULL) {
 		if (match(env[i], "DISPLAY*") == 1)
 			return 0;
+		i++;
 	}
 	return (84);
 }

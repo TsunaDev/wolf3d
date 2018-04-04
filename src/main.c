@@ -56,14 +56,14 @@ int		create_buffer(char *av, t_mapsize *mapsize, char **buffer)
 	int		fd = open(av, O_DIRECTORY);
 	int		bytes;
 
-	if (fd == -1)
+	if (fd == -1) {
 		fd = open(av, O_RDONLY);
 		if (fd != -1) {
 			bytes = read(fd, (*buffer), 29999);
 			(*buffer)[bytes] = '\0';
 		} else
 			return (errors(3));
-	else
+	} else
 		return (errors(2));
 	if (get_size(mapsize, (*buffer)) == 84)
 		return (84);

@@ -5,6 +5,8 @@
 ## wolf's makefile
 ##
 
+CC	= 	gcc
+
 CFLAGS	=	-Iinclude -Wall -Wextra
 
 SRC	=	src/main.c		\
